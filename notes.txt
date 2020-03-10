@@ -1,0 +1,7 @@
+// Day 1
+Don Buchla: Electronic instruments 3 different components vs Traditional instruments all-in-one
+1. Input structure - physical (can be also virtual)
+2. Output structure - Sound generator
+3. Connection between the input and output - controller
+
+What is mapping? —> Connection between input and output

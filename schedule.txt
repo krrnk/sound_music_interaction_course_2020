@@ -1,0 +1,30 @@
+// Day 1
+What is Sound and Music Interaction
+Define Musical interaction
+Small history of computer music
+Mappings, types and uses —> One-One, One-Many, Many-Many, Event mapping
+What is mapping, connection between input and output
+
+Exercises with basic synthesis techniques
+1. Theremin posenet - One to One
+2. FM - One to Many
+3. Wavetable - Many to Many
+
+
+Listening Buchla, synth new interfaces
+
+Readings:
+https://www.tandfonline.com/doi/pdf/10.1076/jnmr.32.4.429.18853?needAccess=true
+https://www.nime.org/proceedings/2019/nime2019_paper045.pdf (maybe)
+
+
+// Day 2
+
+
+// Day 3
+
+
+// Day 4
+
+
+// Day 5 maybe

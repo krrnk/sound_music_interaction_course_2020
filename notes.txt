@@ -3,5 +3,29 @@ Don Buchla: Electronic instruments 3 different components vs Traditional instrum
 1. Input structure - physical (can be also virtual)
 2. Output structure - Sound generator
 3. Connection between the input and output - controller
+This separation makes it hard to design an instrument following the preconceptions we have from acoustic instruments.
 
 What is mapping? —> Connection between input and output
+
+
+// Day 2
+van nort, Doug. (2009). Instrumental Listening: sonic gesture as design principle. Organised Sound. 14. 177 - 187. 10.1017/S1355771809000284. 
+https://www.researchgate.net/publication/231926625_Instrumental_Listening_sonic_gesture_as_design_principle
+Shaeffer introduce that sonic gestures follow the envelope of the overall sound
+impulsive > percussive
+sustained > continuous
+iterative > periodic exicitation
+However, van Nort defends that the sonic gesture is better understood looking not only at the envelope but also how the morphology of the sound changes in time mass, timbre, motion and grain. 
+Later Atltavilla et all suggest that gesture depend also on the sonic affordances and culture. 
+“to design instruments requires choices made by the instrument designer while listening to sonic gestures in context.” >> Acoustic musical instruments have evolved because there was a particular use of them in certain context and for example the evolution of the orchestra and concert culture demanded more volume from the previous instruments. 
+
+
+Alessandro Altavilla, Baptiste Caramiaux, and Atau Tanaka. 2013. Towards Gestural Sonic Affordances. Proceedings of the International Conference on New Interfaces for Musical Expression, Graduate School of Culture Technology, KAIST, pp. 61–64.
+https://www.nime.org/proceedings/2013/nime2013_145.pdf
+3.2 Mapping Scenarions
+
+
+Grain can refer to the texture, but as it happens over time it can also refer to the sonic gesture
+
+Conclusion
+“participants describe sounds  as  resultant  from  an  action  in  the  case  of impulses  and  iterative  sounds,  while  sustained  sounds  were described  referring  to perceivable modulating  characteristics. This  parallels  to  the  present  case  of  active  gestural  control  of sound”

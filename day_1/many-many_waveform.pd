@@ -29,8 +29,8 @@
 #X msg 195 356 \; waveform1 \$1 \$2;
 #X floatatom 248 99 5 0 0 0 - - -;
 #X text 722 176 // reading frequency;
-#N canvas 629 53 544 554 oscData 1;
-#N canvas 306 278 712 525 getOSC 1;
+#N canvas 629 53 544 554 oscData 0;
+#N canvas 306 278 712 525 getOSC 0;
 #X obj 78 135 netreceive -u -b;
 #X msg 90 108 listen 0;
 #X obj 78 188 oscparse;
@@ -62,7 +62,6 @@ built-in OSC ---------------;
 #X connect 1 0 0 0;
 #X connect 2 0 11 0;
 #X connect 9 0 15 0;
-#X connect 11 0 14 0;
 #X connect 11 0 16 0;
 #X connect 11 0 25 0;
 #X connect 15 0 0 0;
@@ -159,6 +158,10 @@ built-in OSC ---------------;
 #X text 25 543 // many-many have multiple possibilities \, find other
 functions;
 #X text 26 531 // perhaps control more than 1 waveform;
+#X msg 37 458 \; pd dsp \$1;
+#X obj 37 436 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 37 413 loadbang;
 #X connect 0 0 34 0;
 #X connect 2 0 0 0;
 #X connect 3 0 44 0;
@@ -204,3 +207,5 @@ functions;
 #X connect 46 0 47 1;
 #X connect 47 0 44 1;
 #X connect 48 0 45 0;
+#X connect 54 0 53 0;
+#X connect 55 0 54 0;

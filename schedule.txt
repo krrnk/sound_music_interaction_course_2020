@@ -15,12 +15,28 @@ Listening Buchla, synth new interfaces
 
 Readings:
 https://www.tandfonline.com/doi/pdf/10.1076/jnmr.32.4.429.18853?needAccess=true
-https://www.nime.org/proceedings/2019/nime2019_paper045.pdf (maybe)
+https://www.nime.org/proceedings/2019/nime2019_paper045.pdf (maybe, if time, find better)
 
 
 // Day 2
 Music gestures & Microsound
 Guerino Mazzola & Moreno Andreatta (2007) Diagrams, gestures and formulae in music, Journal of Mathematics and Music, 1:3, 199-200, DOI: 10.1080/17459730701774269 
+
+https://www.researchgate.net/publication/231926625_Instrumental_Listening_sonic_gesture_as_design_principle
+
+Alessandro Altavilla, Baptiste Caramiaux, and Atau Tanaka. 2013. Towards Gestural Sonic Affordances. Proceedings of the International Conference on New Interfaces for Musical Expression, Graduate School of Culture Technology, KAIST, pp. 61–64.
+https://www.nime.org/proceedings/2013/nime2013_145.pdf
+3.2 Mapping Scenarion
+
+
+Microsound 
+https://www.researchgate.net/publication/331782629_Shaping_Microsound_Using_Physical_Gestures
+
+http://120years.net/wordpress/wp-content/uploads/real-time-granulation-of-sampled-sound-with-the-dmx-1000.pdf
+
+https://sergioluque.com/texts/Luque-The_Stochastic_Synthesis_of_Iannis_Xenakis.pdf
+
+
 
 
 // Day 3

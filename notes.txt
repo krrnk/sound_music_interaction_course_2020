@@ -7,6 +7,7 @@ This separation makes it hard to design an instrument following the preconceptio
 
 What is mapping? —> Connection between input and output
 
+**** Check the RMS for the FM synth ****
 
 // Day 2
 van nort, Doug. (2009). Instrumental Listening: sonic gesture as design principle. Organised Sound. 14. 177 - 187. 10.1017/S1355771809000284. 
@@ -29,3 +30,5 @@ Grain can refer to the texture, but as it happens over time it can also refer to
 
 Conclusion
 “participants describe sounds  as  resultant  from  an  action  in  the  case  of impulses  and  iterative  sounds,  while  sustained  sounds  were described  referring  to perceivable modulating  characteristics. This  parallels  to  the  present  case  of  active  gestural  control  of sound”
+
+— Screen multitouch for the granular synth

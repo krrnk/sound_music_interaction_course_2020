@@ -32,3 +32,4 @@ Conclusion
 “participants describe sounds  as  resultant  from  an  action  in  the  case  of impulses  and  iterative  sounds,  while  sustained  sounds  were described  referring  to perceivable modulating  characteristics. This  parallels  to  the  present  case  of  active  gestural  control  of sound”
 
 — Screen multitouch for the granular synth
+— The idea of granular synthesis is that a sound is sampled at the original speed, but it is played at a different speed from each sample point.

@@ -37,12 +37,17 @@ http://120years.net/wordpress/wp-content/uploads/real-time-granulation-of-sample
 https://sergioluque.com/texts/Luque-The_Stochastic_Synthesis_of_Iannis_Xenakis.pdf
 
 
+// Day 3 Machine Listening & FFT
+FFT~ overview
 
+Env~ H06.envelope.follower.pd
+Bonk~ Help overview
 
-// Day 3
+Timbre ID
 
+Visual Interaction
 
-// Day 4
-
+// Day 4 Spectral processing
+Convolution & Phasevocoder
 
 // Day 5 maybe

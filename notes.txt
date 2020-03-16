@@ -33,3 +33,14 @@ Conclusion
 
 — Screen multitouch for the granular synth
 — The idea of granular synthesis is that a sound is sampled at the original speed, but it is played at a different speed from each sample point.
+
+// Day 3
+FFT is measurement method
+Whole sound spectrum is stored in a buffer. 
+This buffer is divided into blocks called bins
+The bigger our buffer the more bins, therefore better resolution	
+Each bin contains the information of X amount of frequencies and their intensity. 
+https://dspguide.com/graphics/F_12_2.gif 
+A hanning window is used to smooth non-periodical signals
+
+Uses: sound analysis, sound processing, sound correction

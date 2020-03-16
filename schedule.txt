@@ -1,5 +1,5 @@
 // Day 1 - Musical Interaction and Basic Synthesis Techniques	
-Sound and Music Interaction, what is it? What’s is current state?
+Sound and Music Interaction, what is it? What’s its current state?
 Mapping examples with oscillators, FM synthesis and wavetable synthesis. 
 
 // Day 2 - Music gestures & Microsound
@@ -11,7 +11,7 @@ Mapping examples with sample player and granular synthesis.
 What is FTT?
 What sonic features can we extract from FFT analysis?
 How can we use sonic spectral information for interaction?
-Mapping examples with fft and the TimbreID library
+Mapping examples with FFT and the TimbreID library
 
 // Day 4 Spectral processing
 How can we use FFT techniques to create new sounds?

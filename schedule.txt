@@ -1,53 +1,27 @@
-// Day 1
-What is Sound and Music Interaction
-Define Musical interaction
-Small history of computer music
-Mappings, types and uses —> One-One, One-Many, Many-Many, Event mapping
-What is mapping, connection between input and output
+// Day 1 - Musical Interaction and Basic Synthesis Techniques	
+Sound and Music Interaction, what is it? What’s is current state?
+Mapping examples with oscillators, FM synthesis and wavetable synthesis. 
 
-Exercises with basic synthesis techniques
-1. Theremin posenet - One to One
-2. FM - One to Many
-3. Wavetable - Many to Many
-
-
-Listening Buchla, synth new interfaces
-
-Readings:
-https://www.tandfonline.com/doi/pdf/10.1076/jnmr.32.4.429.18853?needAccess=true
-https://www.nime.org/proceedings/2019/nime2019_paper045.pdf (maybe, if time, find better)
-
-
-// Day 2
-Music gestures & Microsound
-Guerino Mazzola & Moreno Andreatta (2007) Diagrams, gestures and formulae in music, Journal of Mathematics and Music, 1:3, 199-200, DOI: 10.1080/17459730701774269 
-
-https://www.researchgate.net/publication/231926625_Instrumental_Listening_sonic_gesture_as_design_principle
-
-Alessandro Altavilla, Baptiste Caramiaux, and Atau Tanaka. 2013. Towards Gestural Sonic Affordances. Proceedings of the International Conference on New Interfaces for Musical Expression, Graduate School of Culture Technology, KAIST, pp. 61–64.
-https://www.nime.org/proceedings/2013/nime2013_145.pdf
-3.2 Mapping Scenarion
-
-
-Microsound 
-https://www.researchgate.net/publication/331782629_Shaping_Microsound_Using_Physical_Gestures
-
-http://120years.net/wordpress/wp-content/uploads/real-time-granulation-of-sampled-sound-with-the-dmx-1000.pdf
-
-https://sergioluque.com/texts/Luque-The_Stochastic_Synthesis_of_Iannis_Xenakis.pdf
-
+// Day 2 - Music gestures & Microsound
+How do we map music gestures?
+What is micro sound?
+Mapping examples with sample player and granular synthesis. 
 
 // Day 3 Machine Listening & FFT
-FFT~ overview
-
-Env~ H06.envelope.follower.pd
-Bonk~ Help overview
-
-Timbre ID
-
-Visual Interaction
+What is FTT?
+What sonic features can we extract from FFT analysis?
+How can we use sonic spectral information for interaction?
+Mapping examples with fft and the TimbreID library
 
 // Day 4 Spectral processing
-Convolution & Phasevocoder
+How can we use FFT techniques to create new sounds?
+Mapping examples with convolution, Phase Vocoder and spectral delay
 
-// Day 5 maybe
+// Day 5 Spatial Sound
+Overview of different multichannel techniques, their characteristics and uses: Ambisonics, VBAP and DBAP.
+
+// Days 6-11
+Tutoring/Working on the projects
+
+// Day 12
+Projects presentation

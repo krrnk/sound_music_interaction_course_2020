@@ -1,0 +1,370 @@
+#N canvas 619 469 1263 698 12;
+#N canvas 1164 182 438 955 fft-analysis 1;
+#X obj 15 164 *~;
+#X obj 14 198 rfft~;
+#X obj 19 856 *~;
+#X obj 20 724 rifft~;
+#X obj 19 884 outlet~;
+#X obj 14 99 inlet~;
+#X text 223 138 windowing;
+#X obj 49 228 delwrite~ ar2 10000;
+#X obj 14 256 delwrite~ ar1 10000;
+#X obj 21 318 tabreceive~ delay;
+#X obj 20 394 -~;
+#X obj 58 369 wrap~;
+#X obj 19 482 *~ 512;
+#X obj 20 601 /~ 44.1;
+#X obj 20 644 vd~ ar1;
+#X obj 89 644 vd~ ar2;
+#X text 215 230 fft-Analysis is;
+#X text 191 253 writte to the;
+#X text 201 275 buffers;
+#X text 164 322 delay array uses buffer;
+#X text 165 344 to determine reading;
+#X text 167 365 position;
+#X text 65 396 only integers \, jump to bin no.;
+#X text 86 600 conversion to milliseconds;
+#X text 161 643 reading buffers;
+#X text 79 722 resynthesis;
+#X text 84 803 normalization;
+#X text 225 831 final windowing;
+#X obj 36 140 tabreceive~ hanningWindow;
+#X obj 37 831 tabreceive~ hanningWindow;
+#X obj 58 450 r windowSize;
+#X text 88 481 every bin is N samples in size;
+#X obj 66 543 samplerate~;
+#X obj 66 519 loadbang;
+#X obj 66 568 / 1000;
+#X obj 59 751 r windowSize;
+#X obj 59 777 * 1.5;
+#X obj 20 803 /~ 786;
+#X obj 199 794 block~ 2048 4;
+#X msg 199 771 set \$1 4;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 1 1 7 0;
+#X connect 2 0 4 0;
+#X connect 3 0 37 0;
+#X connect 5 0 0 0;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 1;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 15 0;
+#X connect 14 0 3 0;
+#X connect 15 0 3 1;
+#X connect 28 0 0 1;
+#X connect 29 0 2 1;
+#X connect 30 0 12 1;
+#X connect 32 0 34 0;
+#X connect 33 0 32 0;
+#X connect 34 0 13 1;
+#X connect 35 0 36 0;
+#X connect 35 0 39 0;
+#X connect 36 0 37 1;
+#X connect 37 0 2 0;
+#X connect 39 0 38 0;
+#X restore 273 368 pd fft-analysis;
+#N canvas 0 0 454 304 (subpatch) 0;
+#X array delay 512 float 3;
+#A 0 559.317 559.317 549.773 540.23 530.686 523.528 516.37 509.212
+502.054 494.896 487.738 473.422 459.106 444.79 435.246 425.702 416.158
+405.421 394.684 383.947 373.211 363.667 354.123 344.579 323.105 301.631
+373.212 358.896 301.632 244.368 144.157 115.525 86.8932 115.525 151.315
+187.105 234.824 282.544 330.264 430.475 459.107 487.739 516.371 535.459
+554.547 573.634 609.424 645.214 659.53 673.846 688.162 702.478 745.425
+759.741 774.057 774.057 774.057 774.057 774.057 774.057 774.057 774.057
+774.057 774.057 774.057 774.057 774.057 774.057 774.057 774.057 770.478
+766.899 763.32 759.741 749.004 738.267 727.531 716.793 713.93 711.067
+708.204 705.341 702.478 699.614 696.751 693.888 691.025 688.162 683.39
+678.618 673.846 669.074 664.302 659.53 654.758 649.986 645.214 640.442
+635.67 630.898 628.512 626.126 623.74 621.354 618.968 616.582 605.13
+593.677 582.224 570.771 559.319 555.228 551.138 547.048 542.957 538.867
+534.777 530.687 519.234 507.781 496.328 484.876 473.423 469.844 466.265
+462.686 459.107 448.37 437.633 426.896 416.159 406.615 397.071 387.527
+373.212 373.212 373.212 387.527 401.843 416.159 430.475 451.949 473.423
+487.739 502.055 521.143 540.231 559.318 573.634 602.266 616.582 630.898
+645.214 659.53 659.53 666.688 673.846 681.004 688.162 695.32 702.478
+702.478 702.478 702.478 702.478 698.899 695.32 691.741 688.162 673.846
+666.688 659.53 652.372 645.214 630.898 616.582 602.266 587.95 584.371
+580.792 577.213 573.634 554.547 535.459 516.371 504.918 493.465 482.013
+470.56 459.107 450.517 441.928 433.338 424.749 416.159 401.843 387.527
+373.212 358.896 344.58 330.264 315.948 301.632 287.316 287.316 301.632
+315.948 330.264 358.896 387.527 444.791 459.107 473.423 502.055 530.687
+545.003 559.318 573.634 602.266 616.582 616.582 616.582 616.582 616.582
+616.582 616.582 616.582 616.582 616.582 616.582 616.582 616.582 610.856
+605.129 599.403 593.677 587.95 580.792 573.634 566.476 559.318 552.161
+545.003 536.413 527.823 519.234 510.644 502.055 493.107 484.16 475.212
+466.265 457.318 448.37 439.423 430.475 418.545 406.615 394.685 382.755
+370.826 358.896 351.738 344.58 337.422 330.264 323.106 315.948 308.79
+301.632 292.088 282.544 273 261.547 250.095 238.642 227.189 215.736
+208.578 201.421 205 208.578 212.157 215.736 230.052 251.526 273 292.088
+311.176 330.264 373.212 401.843 430.475 459.107 480.581 502.055 521.143
+540.231 559.318 583.178 607.038 630.898 649.986 669.074 688.162 698.899
+709.636 720.373 731.109 745.425 759.741 774.057 778.829 783.601 788.373
+788.373 788.373 788.373 788.373 788.373 788.373 788.373 788.373 788.373
+788.373 788.373 781.215 774.057 766.899 759.741 749.004 738.267 727.531
+716.794 706.057 695.32 684.583 673.846 664.302 654.758 645.214 635.67
+626.126 616.582 597.494 578.406 559.318 540.231 521.143 502.055 484.16
+466.265 448.37 430.475 416.159 401.843 387.527 363.668 339.808 315.948
+311.176 306.404 301.632 294.474 287.316 287.316 287.316 287.316 287.316
+287.316 287.316 294.474 301.632 315.948 323.106 330.264 337.422 344.58
+344.58 344.58 344.58 344.58 358.896 358.896 358.896 358.896 358.896
+358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896
+358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896
+358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896
+358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896
+358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896
+358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896 358.896
+358.896 358.896 358.896 358.896 351.738 344.58 337.422 330.264 323.106
+315.948 313.562 311.176 308.79 306.404 304.018 301.632 299.246 296.86
+294.474 292.088 289.702 287.316 277.772 268.228 258.684 249.14 239.596
+230.052 226.473 222.894 219.315 215.736 208.578 201.421 194.263 187.105
+176.368 165.631 154.894 144.157 144.157 140.578 136.999 133.42 129.841
+101.209 86.8932 86.8932 86.8932 86.8932 86.8932 86.8932 86.8932 86.8932
+86.8932 86.8932 86.8932 91.6652 96.4371 101.209 129.841 144.157 201.421
+215.736 230.052 301.632 487.739 573.634 602.266 759.741 0;
+#X coords 0 1 512 859.95 512 60 1;
+#X restore 152 124 graph;
+#X text 671 173 1;
+#X text 148 184 0;
+#X text 117 182 Hz:;
+#X text 148 203 0;
+#X text 595 611 3.8.2.4. Spectral Delay;
+#X text 297 79 first draw the delay pattern...;
+#X text 623 570 www.pd-tutorial.com;
+#X text 636 548 Johannes Kreidler;
+#N canvas 470 219 565 454 hann-window 0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array hanningWindow 1024 float 0;
+#X coords 0 1 1023 0 300 100 1;
+#X restore 82 311 graph;
+#X obj 438 165 osc~;
+#X obj 438 190 *~ -0.5;
+#X obj 438 214 +~ 0.5;
+#X obj 38 183 /;
+#X obj 127 152 samplerate~;
+#X obj 38 261 s window-sec;
+#X obj 177 214 swap;
+#X obj 177 238 /;
+#X obj 177 262 s window-hz;
+#X obj 49 211 * 1000;
+#X obj 49 238 s window-msec;
+#X obj 38 115 t f b f;
+#X obj 390 105 r window-hz;
+#X msg 442 130 0;
+#X obj 390 131 t f b;
+#X text 15 8 calculate Hann window table (variable window size) and
+constants window-hz (fundamental frequency of analysis) \, window-sec
+and window-msec (analysis window size in seconds and msec).;
+#X obj 391 247 tabwrite~ hanningWindow;
+#X msg 213 142 \; hanningWindow resize \$1;
+#X obj 38 88 r windowSize;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 17 0;
+#X connect 4 0 6 0;
+#X connect 4 0 10 0;
+#X connect 5 0 4 1;
+#X connect 5 0 7 1;
+#X connect 7 0 8 0;
+#X connect 7 1 8 1;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 12 0 4 0;
+#X connect 12 0 7 0;
+#X connect 12 1 5 0;
+#X connect 12 2 18 0;
+#X connect 13 0 15 0;
+#X connect 14 0 1 1;
+#X connect 15 0 1 0;
+#X connect 15 1 14 0;
+#X connect 15 1 17 0;
+#X connect 19 0 12 0;
+#X restore 15 202 pd hann-window;
+#X msg 15 91 512;
+#X msg 15 113 1024;
+#X msg 15 135 2048;
+#X msg 15 157 4096;
+#X obj 15 10 loadbang;
+#X obj 15 179 s windowSize;
+#X obj 154 62 array size delay;
+#X obj 154 33 * 0.5;
+#X obj 154 8 r windowSize;
+#X text 640 206 samplerate/2;
+#X text 773 121 // Y axis is bin positions and max delay time in millisecons
+;
+#X text 772 136 // the calculations are as follows:;
+#X text 771 153 // maxDelTime = (delayBuffer / blockOverlap) - blockOverlap
+;
+#X text 771 173 // nBinPositions = (maxDelTime * (sampleRate/1000))
+/ windowSize;
+#X text 666 116 maxDelTime;
+#X text 665 130 nBinPositions;
+#X msg 780 272 10000;
+#X obj 780 350 expr ($f2 * ($f3/1000)) / $f1;
+#X obj 780 208 r windowSize;
+#X obj 780 233 t b f;
+#X obj 916 295 samplerate~;
+#X floatatom 780 375 10 0 0 0 nBinPositions - -, f 10;
+#X obj 16 233 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 16 253 openpanel;
+#X obj 16 301 soundfiler;
+#X obj 90 253 table sample1;
+#X msg 16 277 read -resize \$1 sample1;
+#X obj 272 233 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 211 231 stop;
+#X obj 272 257 tabplay~ sample1;
+#X obj 780 295 expr ($f1 / 4) - 4;
+#X floatatom 780 320 10 0 0 0 maxDelTime - -, f 10;
+#X msg 15 426 \; pd dsp \$1;
+#X obj 15 384 loadbang;
+#X obj 15 406 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 0 89 505 461 output 0;
+#X obj 13 106 hsl 42 23 0.01 0.1 1 0 \$0-v \$0-v volume 7 13 1 9 -245500
+-13381 -1 4100 0;
+#X obj 57 106 tgl 18 0 THIS_IS_HERE_TO_GET_RID_OF_THE_OUTLET \$0-dsp-toggle
+dsp 2 9 1 9 -225271 -195568 -33289 1 1;
+#N canvas 1009 460 429 371 dsp 0;
+#X obj 36 30 inlet;
+#X obj 117 227 select 0 1;
+#X msg 150 252 6;
+#X obj 117 86 route dsp;
+#X obj 117 59 receive pd;
+#X msg 36 228 dsp \$1;
+#X obj 36 253 send pd;
+#X msg 231 279 set \$1;
+#X msg 117 279 color \$1 20 12;
+#X obj 231 310 send \$0-dsp-toggle;
+#X msg 117 251 0;
+#X obj 251 129 loadbang;
+#X obj 231 99 sig~ 1;
+#X obj 231 191 snapshot~;
+#X obj 251 158 delay 100;
+#X obj 117 138 change -1;
+#X obj 2 2 cnv 15 425 20 empty empty empty 3 12 0 14 -204280 -1 0;
+#X text 6 3 Retrieve and set DSP state;
+#X connect 0 0 5 0;
+#X connect 0 0 15 0;
+#X connect 1 0 10 0;
+#X connect 1 1 2 0;
+#X connect 2 0 8 0;
+#X connect 3 0 15 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
+#X connect 10 0 8 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 1 0;
+#X connect 13 0 7 0;
+#X connect 14 0 13 0;
+#X connect 15 0 7 0;
+#X connect 15 0 1 0;
+#X restore 82 148 pd dsp logic;
+#X obj 188 31 inlet~;
+#X obj 74 268 line~;
+#X obj 174 328 *~;
+#X obj 194 358 dac~;
+#X text 200 51 audio in;
+#X obj 250 31 inlet~;
+#X obj 236 327 *~;
+#X obj 188 102 hip~ 3;
+#X obj 250 102 hip~ 3;
+#X obj 10 283 send pd;
+#X msg 10 262 dsp 1;
+#X obj 74 247 pack 0 50;
+#X text 141 246 <-- make a ramp to avoid clicks or zipper noise;
+#X msg 74 212 0;
+#X obj 74 189 moses 0.011;
+#X text 294 103 filter out DC;
+#X obj 4 3 cnv 15 425 20 empty empty empty 3 12 0 14 -204280 -1 0;
+#X text 14 376 Created by Katja Vetter after an idea by Claude Heiland-Allen
+;
+#X text 10 3 dac~ and DSP switch;
+#X connect 0 0 13 0;
+#X connect 0 0 17 0;
+#X connect 1 0 2 0;
+#X connect 3 0 10 0;
+#X connect 4 0 9 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 8 0 11 0;
+#X connect 9 0 6 1;
+#X connect 10 0 5 1;
+#X connect 11 0 9 1;
+#X connect 13 0 12 0;
+#X connect 14 0 4 0;
+#X connect 16 0 14 0;
+#X connect 17 0 16 0;
+#X connect 17 1 14 0;
+#X coords 0 -1 1 1 85 60 1 5 85;
+#X restore 271 534 pd output;
+#X msg 15 69 256;
+#X msg 15 47 128;
+#X msg 780 464 \; delay bounds 0 1 \$1 \$2;
+#X obj 780 439 pack f f;
+#X obj 780 399 t f b;
+#X obj 682 400 r windowSize;
+#X text 633 191 windowSize / 2;
+#X text 427 592 http://www.pd-tutorial.com/english/ch03s08.html;
+#X floatatom 443 288 5 0 0 0 - - -, f 5;
+#X obj 414 365 *~;
+#X obj 301 399 expr 1 - $f1;
+#X obj 272 505 +~;
+#X obj 272 479 *~;
+#X obj 443 337 line~;
+#X obj 301 451 line~;
+#X msg 301 426 \$1 10;
+#X msg 443 312 \$1 10;
+#X connect 0 0 59 0;
+#X connect 11 0 16 0;
+#X connect 12 0 16 0;
+#X connect 13 0 16 0;
+#X connect 14 0 16 0;
+#X connect 15 0 11 0;
+#X connect 18 0 17 0;
+#X connect 19 0 18 0;
+#X connect 27 0 41 0;
+#X connect 28 0 32 0;
+#X connect 29 0 30 0;
+#X connect 30 0 27 0;
+#X connect 30 0 31 0;
+#X connect 30 1 28 0;
+#X connect 31 0 28 2;
+#X connect 32 0 51 0;
+#X connect 33 0 34 0;
+#X connect 34 0 37 0;
+#X connect 37 0 35 0;
+#X connect 38 0 40 0;
+#X connect 39 0 40 0;
+#X connect 40 0 56 0;
+#X connect 40 0 0 0;
+#X connect 40 1 38 0;
+#X connect 41 0 42 0;
+#X connect 42 0 28 1;
+#X connect 44 0 45 0;
+#X connect 45 0 43 0;
+#X connect 47 0 16 0;
+#X connect 48 0 16 0;
+#X connect 50 0 49 0;
+#X connect 51 0 50 1;
+#X connect 51 1 50 0;
+#X connect 52 0 50 0;
+#X connect 55 0 63 0;
+#X connect 55 0 57 0;
+#X connect 56 0 58 1;
+#X connect 57 0 62 0;
+#X connect 58 0 46 0;
+#X connect 58 0 46 1;
+#X connect 59 0 58 0;
+#X connect 60 0 56 1;
+#X connect 61 0 59 1;
+#X connect 62 0 61 0;
+#X connect 63 0 60 0;

@@ -1,0 +1,169 @@
+#N canvas 759 270 1022 619 10;
+#X text 218 112 fft - identifies all the;
+#X text 218 134 frequeincy components within particular wave form;
+#X text 216 163 the general idea of analyzing a sound by breaking it
+into its frequency components \, and conversely \, using a bunch of
+frequency components to synthesize a new sound.;
+#X text 217 450 44100 / 64 = 689Hz • Each bin therefore has a size
+of 689Hz;
+#X text 217 332 Usually a normalization process is conducted after
+a FFT process \, because the amplitude values become fairly high. First
+\, this is the block size:;
+#X text 602 438 You can convert re/img-pairs to amplitude and phase
+using these formulas: amp = sqrt(re^2 + im^2) phs = arctan(im/re);
+#X text 604 262 How many [osc~] objects you can control \, will depend
+on the block-size: The FFT will generate control data for blocksize/2
+oscillators. So with a blocksize of 64 \, you get frequencies \, phase
+and amplitudes for 32 osc~s. Now for some deep mathematical reasons
+all these [osc~] objects have fixed tunings: They all are multiples
+(harmonics) of Samplerate/Blocksize. So it starts at f0 = 0 Hertz \,
+the next [osc~] would have a frequency f1= 1 * SR/BS \, the next at
+f2=2*SR/BS up to the final one: f_final = (BS/2) * SR/BS == SR/2 or
+the Nyquist-frequency. For a blocksize of 64 and a samplerate of 44100
+Hz this would be: f0: 0 f1: 1 * 44100/64 = 689 f2: 2 * 44100/64 = 1378
+... f8: 8 * 44100/64 = 5512;
+#X text 604 138 It will calculate \, what sine waves you need to add
+up to get the same signal as that played in the current signal block.
+Basically it will tell you the frequencies and phases (first and second
+inlets) and amplitudes of a lot of [osc~] objects that \, if you add
+them all up \, would resynthesize your current signal. real and imganary
+parts \; these carry exactly the same information about amplitude and
+phase \, but encoded a bit differently;
+#X floatatom 12 110 0 0 0 0 - - -;
+#X obj 12 61 * 44100;
+#X floatatom 12 39 0 0 0 0 - freq -;
+#X obj 12 166 osc~;
+#X obj 12 191 rfft~;
+#X obj 12 247 rifft~;
+#X obj 57 247 print~ real;
+#X obj 71 222 print~ imaginary;
+#X obj 12 284 /~ 64;
+#X msg 57 178 bang;
+#X msg 33 136 0.25;
+#X msg 74 136 0;
+#X text 69 111 frequency in Hz.;
+#X text 40 38 frequency in bins;
+#X text 52 314 <- renormalize;
+#X text 101 137 <- bash phase;
+#X text 89 179 <- print analysis;
+#X floatatom 71 68 5 0 0 1 blockSize blockSize -, f 5;
+#X floatatom 63 268 5 0 0 1 blockSize blockSize -, f 5;
+#X obj 12 85 / 64;
+#X msg 161 14 \; blockSize 64 \; freq 1;
+#X msg 250 13 \; blockSize 512 \; freq 1;
+#X msg 350 14 \; blockSize 2048 \; freq 1;
+#X msg 450 14 \; blockSize 4096 \; freq 1;
+#X obj 625 15 loadbang;
+#X msg 625 37 \; pd dsp 1;
+#X text 216 214 This process performs what is called Fourier transformation.
+It divides the entire frequency spectrum into parts of equal size and
+determines the amplitude and phase for each part. One could in turn
+reconstruct the original signal from these values. The derivation of
+the component parts is called analysis \; the reconstruction is called
+resynthesis. You can realize this using the objects "rfft~" and "irfft~":
+;
+#X text 234 373 - position of the wave in time;
+#X text 234 391 - Then \, the amplitude and phase for each of these
+parts is determined • The parts of the frequency spectrum are called
+bins • The size of each frequency bin is determined by the block
+size;
+#N canvas 0 89 505 461 output 0;
+#X obj 13 106 hsl 42 23 0.01 0.1 1 0 \$0-v \$0-v volume 7 13 1 9 -245500
+-13381 -1 0 0;
+#X obj 57 106 tgl 18 0 THIS_IS_HERE_TO_GET_RID_OF_THE_OUTLET \$0-dsp-toggle
+dsp 2 9 1 9 -225271 -195568 -33289 1 1;
+#N canvas 1009 460 429 371 dsp 0;
+#X obj 36 30 inlet;
+#X obj 117 227 select 0 1;
+#X msg 150 252 6;
+#X obj 117 86 route dsp;
+#X obj 117 59 receive pd;
+#X msg 36 228 dsp \$1;
+#X obj 36 253 send pd;
+#X msg 231 279 set \$1;
+#X msg 117 279 color \$1 20 12;
+#X obj 231 310 send \$0-dsp-toggle;
+#X msg 117 251 0;
+#X obj 251 129 loadbang;
+#X obj 231 99 sig~ 1;
+#X obj 231 191 snapshot~;
+#X obj 251 158 delay 100;
+#X obj 117 138 change -1;
+#X obj 2 2 cnv 15 425 20 empty empty empty 3 12 0 14 -204280 -1 0;
+#X text 6 3 Retrieve and set DSP state;
+#X connect 0 0 5 0;
+#X connect 0 0 15 0;
+#X connect 1 0 10 0;
+#X connect 1 1 2 0;
+#X connect 2 0 8 0;
+#X connect 3 0 15 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
+#X connect 10 0 8 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 1 0;
+#X connect 13 0 7 0;
+#X connect 14 0 13 0;
+#X connect 15 0 7 0;
+#X connect 15 0 1 0;
+#X restore 82 148 pd dsp logic;
+#X obj 188 31 inlet~;
+#X obj 74 268 line~;
+#X obj 174 328 *~;
+#X obj 194 358 dac~;
+#X text 200 51 audio in;
+#X obj 250 31 inlet~;
+#X obj 236 327 *~;
+#X obj 188 102 hip~ 3;
+#X obj 250 102 hip~ 3;
+#X obj 10 283 send pd;
+#X msg 10 262 dsp 1;
+#X obj 74 247 pack 0 50;
+#X text 141 246 <-- make a ramp to avoid clicks or zipper noise;
+#X msg 74 212 0;
+#X obj 74 189 moses 0.011;
+#X text 294 103 filter out DC;
+#X obj 4 3 cnv 15 425 20 empty empty empty 3 12 0 14 -204280 -1 0;
+#X text 14 376 Created by Katja Vetter after an idea by Claude Heiland-Allen
+;
+#X text 10 3 dac~ and DSP switch;
+#X connect 0 0 13 0;
+#X connect 0 0 17 0;
+#X connect 1 0 2 0;
+#X connect 3 0 10 0;
+#X connect 4 0 9 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 8 0 11 0;
+#X connect 9 0 6 1;
+#X connect 10 0 5 1;
+#X connect 11 0 9 1;
+#X connect 13 0 12 0;
+#X connect 14 0 4 0;
+#X connect 16 0 14 0;
+#X connect 17 0 16 0;
+#X connect 17 1 14 0;
+#X coords 0 -1 1 1 85 60 1 5 85;
+#X restore 11 350 pd output;
+#X connect 8 0 11 0;
+#X connect 9 0 27 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 12 0 13 0;
+#X connect 12 1 15 0;
+#X connect 12 1 13 1;
+#X connect 13 0 16 0;
+#X connect 16 0 37 0;
+#X connect 16 0 37 1;
+#X connect 17 0 14 0;
+#X connect 17 0 15 0;
+#X connect 18 0 11 1;
+#X connect 19 0 11 1;
+#X connect 25 0 27 1;
+#X connect 26 0 16 1;
+#X connect 27 0 8 0;
+#X connect 32 0 33 0;

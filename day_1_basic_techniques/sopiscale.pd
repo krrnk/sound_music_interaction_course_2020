@@ -1,4 +1,4 @@
-#N canvas 503 182 435 340 10;
+#N canvas 373 355 435 340 10;
 #X text 207 136 inlets;
 #X text 208 187 _min value for the output range;
 #X text 208 202 _max value for the output range;

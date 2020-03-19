@@ -48,3 +48,6 @@ https://dspguide.com/graphics/F_12_2.gif
 A hanning window is used to smooth non-periodical signals
 
 Uses: sound analysis, sound processing, sound correction
+
+//————— Day 4
+The tool for audio processing was a phase-vocoder patch in Max7 used to stretchthe piece to 5 times the original length without affecting the overall pitch. To achievethis, I designed an algorithm using the external object vb.stretch, designed for Maxby Volker B ̈ohm [49]. This object also allows one to replicatethe stretched signalinto 6 copies, making it possible to apply an independent pitch shiftingvalue to eachof them. InCollage 15, there is a gradual harmonic expansion of the stretched soundmaterial, ultimately building up towards a climax in the closing section.

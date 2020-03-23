@@ -11,19 +11,19 @@
 #X text 156 31 // loop;
 #X msg 98 166 0;
 #X obj 128 335 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9725 1;
+-1 -1 10324 1;
 #X obj 78 284 env~;
 #X floatatom 78 309 5 0 0 0 - - -;
 #X obj 78 335 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9516 1;
+-1 -1 10285 1;
 #X obj 178 284 env~;
 #X floatatom 178 309 5 0 0 0 - - -;
 #X obj 178 335 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9595 1;
+-1 -1 10268 1;
 #X obj 29 284 env~;
 #X floatatom 29 309 5 0 0 0 - - -;
 #X obj 29 335 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9621 1;
+-1 -1 10069 1;
 #X floatatom 528 8 5 -180 180 0 - - -;
 #X floatatom 489 7 5 -90 90 0 - - -;
 #X obj 510 55 pack 0 0;
@@ -68,7 +68,7 @@
 #X obj 305 520 s~ W;
 #X obj 754 430 r~ W;
 #X obj 681 510 s~ out1;
-#X obj 722 814 dac~ 1 2 3 4;
+#X obj 742 834 dac~ 1 2 3 4;
 #X obj 741 510 s~ out2;
 #X obj 801 510 s~ out3;
 #X obj 861 510 s~ out4;
@@ -79,19 +79,19 @@
 #X obj 801 576 env~;
 #X floatatom 801 601 5 0 0 0 - - -;
 #X obj 801 627 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9254 1;
+-1 -1 9627 1;
 #X obj 741 576 env~;
 #X floatatom 741 601 5 0 0 0 - - -;
 #X obj 741 627 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9419 1;
+-1 -1 10095 1;
 #X obj 861 576 env~;
 #X floatatom 861 601 5 0 0 0 - - -;
 #X obj 861 627 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 8890 1;
+-1 -1 9115 1;
 #X obj 682 576 env~;
 #X floatatom 682 601 5 0 0 0 - - -;
 #X obj 682 627 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9475 1;
+-1 -1 9781 1;
 #X obj 682 549 r~ out1;
 #X obj 741 549 r~ out2;
 #X obj 801 549 r~ out3;
@@ -132,6 +132,10 @@
 #X msg 54 617 \; pd dsp \$1;
 #X obj 31 685 declare -lib iem_ambi -lib iemmatrix -lib zexy;
 #X msg 78 63 A_Format/3.wav;
+#X obj 675 804 *~ 0.1;
+#X obj 735 804 *~ 0.1;
+#X obj 795 804 *~ 0.1;
+#X obj 855 804 *~ 0.1;
 #X connect 0 0 2 0;
 #X connect 1 0 26 0;
 #X connect 1 1 27 0;
@@ -176,10 +180,10 @@
 #X connect 48 0 111 0;
 #X connect 49 0 43 0;
 #X connect 57 0 112 1;
-#X connect 63 0 59 0;
-#X connect 64 0 59 1;
-#X connect 65 0 59 2;
-#X connect 66 0 59 3;
+#X connect 63 0 118 0;
+#X connect 64 0 119 0;
+#X connect 65 0 120 0;
+#X connect 66 0 121 0;
 #X connect 67 0 68 0;
 #X connect 68 0 69 0;
 #X connect 70 0 71 0;
@@ -222,3 +226,7 @@
 #X connect 113 0 114 0;
 #X connect 114 0 115 0;
 #X connect 117 0 3 0;
+#X connect 118 0 59 0;
+#X connect 119 0 59 1;
+#X connect 120 0 59 2;
+#X connect 121 0 59 3;

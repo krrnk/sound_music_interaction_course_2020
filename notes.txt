@@ -50,9 +50,51 @@ A hanning window is used to smooth non-periodical signals
 Uses: sound analysis, sound processing, sound correction
 
 /—————— Day 4
-Juan Vasquez on his collague 15
-"The tool for audio processing was a phase-vocoder patch in Max7 used to stretch the piece to 5 times the original length without affecting the overall pitch. To achievethis, I designed an algorithm using the external object vb.stretch, designed for Maxby Volker B ̈ohm [49]. This object also allows one to replicate the stretched signalinto 6 copies, making it possible to apply an independent pitch shifting value to each of them. In Collage 15, there is a gradual harmonic expansion of the stretched soundmaterial, ultimately building up towards a climax in the closing section."
+Juan Vasquez on his collage 15
+"The tool for audio processing was a phase-vocoder patch in Max7 used to stretch the piece to 5 times the original length without affecting the overall pitch. To achieve this, I designed an algorithm using the external object vb.stretch, designed for Maxby Volker B ̈ohm [49]. This object also allows one to replicate the stretched signal into 6 copies, making it possible to apply an independent pitch shifting value to each of them. In Collage 15, there is a gradual harmonic expansion of the stretched sound material, ultimately building up towards a climax in the closing section."
 
 /—————— Day 5
 History of spatial music
 https://econtact.ca/7_4/zvonar_spatialmusic.html
+
+
+Surround Sound mailing list:
+https://mail.music.vt.edu/mailman/listinfo/sursound
+
+Ambisonics
+Soundfields that can be captured, transformed(rotate, push, mirror, beamformed, etc) and decoded to different loudspeaker setups (binaural included). 
+Encoding-Decoding adds flexibility
+Accuracy depends on ambisonic order - 1st order feels diffused and the sweet spot is small
+It becomes more interesting 3rd order and up
+Works the best with strict symmetrical setups.
+CPU efficient
+Ambisonics with VBAP developed at Aalto: http://research.spa.aalto.fi/projects/sparta_vsts/ 
+
+VBAP, instead of thinking of gain changes of loudspeakers pairs, we thing of virtual sources moving across loudspeaker vectors.
+More loudspeakers = better accuracy
+Flexible setups
+Sweet spot grows with >= 8 speakers
+CPU efficient
+
+Azimuth vs panning
+One does not kill the other
+Panning = gain distribution
+Azimuth = horizontal plane angle between listener and sound source
+
+
+VBAP vs Ambisonics
+Small spread can bring coloration and break spatialisation dynamics.
+VBAP localises more the source on a particular vector of loudspeakers because of its spread implementation. 
+On the contrary, Ambisonics plays in all speakers at the same time. This offer a more spread sound source where the accuracy of location depends on the order and phase transformations. Smoother spatialisation.
+
+
+DBAP
+Measures distance between speakers (not listeners) and virtual sound sources
+Asymmetrical setups
+Non-dependent on the sweet spot
+CPU efficient
+Speaker gravity can appear
+Sound source representation outside the speaker field might bring gravitation to a particular speaker (Not a problem of the prev. 2 methods because the listeners are not supposed to be outside the speaker array)
+
+
+

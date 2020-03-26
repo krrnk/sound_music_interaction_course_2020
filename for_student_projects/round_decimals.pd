@@ -1,0 +1,26 @@
+#N canvas 604 208 470 403 12;
+#X obj 95 95 env~;
+#X floatatom 95 118 10 0 0 0 - - -;
+#X obj 95 71 *~ 1;
+#X obj 95 165 symbol \$1;
+#X obj 95 191 f;
+#X obj 95 244 change;
+#X obj 95 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 104 218 10 0 0 0 - - -;
+#X msg 262 100 \; pd dsp 1;
+#X obj 95 288 random 100;
+#X floatatom 95 312 5 0 0 0 - - -;
+#X obj 95 141 makefilename %.1f;
+#X obj 95 47 osc~ 0.01;
+#X connect 0 0 1 0;
+#X connect 1 0 11 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 9 0 10 0;
+#X connect 11 0 3 0;
+#X connect 12 0 2 0;
